@@ -1,4 +1,4 @@
-namespace Lab1
+﻿namespace Lab1
 {
     public class Blue
     {
@@ -6,12 +6,11 @@ namespace Lab1
         {
             bool answer = false;
 
-            if (a != 0 && b != 0)
-            {
-                if ((a > 0 && b > 0) || (a < 0 && b > 0))
-                    ans = true;
-            }
+            // code here
 
+            answer = a > 0 && b > 0 || a < 0 && b < 0;
+            
+            // end
 
             return answer;
         }
@@ -19,9 +18,10 @@ namespace Lab1
         {
             bool answer = false;
 
-            double frac = Math.Abs(d - Math.Truncate(d));
-            if (frac > 0.0001)
-                ans = true;
+            // code here
+
+            answer = (int)d != d;
+            // end
 
             return answer;
         }
@@ -29,10 +29,10 @@ namespace Lab1
         {
             bool answer = false;
 
-            bool ans = false;
-            if (b != 0 && a % b == 0)
-                ans = true;
-            return ans;
+            // code here
+
+            answer = b != 0 ? a % b == 0: false;
+            // end
 
             return answer;
         }
@@ -40,15 +40,13 @@ namespace Lab1
         {
             double answer = 0;
 
-            double absD = Math.Abs(d);
-            double absF = Math.Abs(f);
-            double absG = Math.Abs(g);
+            // code here
 
-            if (absD >= absF && absD >= absG)
+            if ((d < 0 ? -d : d) > (f < 0 ? -f : f) && (d < 0 ? -d : d) > (g < 0 ? -g : g))
             {
                 answer = d;
             }
-            else if (absF >= absD && absF >= absG)
+            else if ((f < 0 ? -f : f) > (d < 0 ? -d : d) && (f < 0 ? -f : f) > (g < 0 ? -g : g))
             {
                 answer = f;
             }
@@ -56,24 +54,29 @@ namespace Lab1
             {
                 answer = g;
             }
+            // end
 
             return answer;
         }
         public double Task5(double x)
         {
             double answer = 0;
+
+            // code here
+
             if (x <= -1)
             {
-                ans = 0;
+                answer = 0.0;
             }
-            else if (x > -1 && x <= 0)
+            else if (-1 < x && x <= 0)
             {
-                ans = x + 1;
+                answer = x + 1;
             }
-            else if (x > 0)
+            else
             {
-                ans = 1;
+                answer = 1;
             }
+            // end
 
             return answer;
         }
@@ -81,42 +84,34 @@ namespace Lab1
         {
             bool answer = false;
 
-            
-            double r = Math.Sqrt(circleS / 3.14); 
-            double a = Math.Sqrt(squareS);       
-            double d = 2 * r;         
+            // code here
 
-            if (d <= a)
-            {
-                ans = true; 
-            }
-            else
-            {
-                ans = false; 
-            }
+            answer = (circleS/3.141592653589793238) <= squareS / 4;
+            // end
 
             return answer;
         }
-
         public double Task7(double d, double f)
         {
             int answer = 0;
 
-          double absD = d < 0 ? -d : d;
-            double absF = f < 0 ? -f : f;
+            // code here
 
-
-            if (absD < absF)
+            if ((d > 0 ? d : -d) < (f > 0 ? f : -f))
             {
-
                 if (d > 0)
-                    ans = -1;
+                {
+                    answer = -1;
+                }
             }
             else
             {
                 if (f > 0)
-                    ans = 1;
+                {
+                    answer = 1;
+                }
             }
+            // end
 
             return answer;
         }
@@ -124,20 +119,19 @@ namespace Lab1
         {
             bool answer = false;
 
-              int first = a / 2;
-            int second = b / 2;
-            int third = c / 2;
-            
-            for (int gold = 1; gold <= 10000; gold++) 
-            {
-                if (first >= gold && second >= gold && (third >= gold || third + 1 == gold))
-                {
-                    answer = true;
-                    break;
-                }
-            }
+            // code here
+
+            int pa = a / 2;
+            int pb = b / 2;
+            int pc = c / 2;
+            int sum = pa + pb + pc;
+            bool c1 = (sum % 3) == 0 && (sum / 3) >= 1 && (sum / 3) <= c && (sum / 3) <= a && (sum / 3) <= b;
+            bool c2 = (sum + 1) % 3 == 0 && (sum + 1) / 3 >= 1 && ((sum+1) / 3) <= c && (sum+1) / 3 <= a && (sum+1) / 3 <= b;
+            answer = c1 || c2;
+            // end
 
             return answer;
         }
     }
+}
 }
